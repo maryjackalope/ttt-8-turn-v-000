@@ -1,11 +1,3 @@
-# code your #valid_move? method here
-#board = ["X", " ", " ", " ", " ", " ", " ", " ", "O"]
-#puts "Enter a position on the board 1-9:"
-
- #user_input = gets
-#number_entered = user_input.to_i - 1
-#board = ["X", " "," ", " ", " ", " ", " ", " ", " "]
-
 def display_board(board)
 
 puts " #{board[0]} | #{board[1]} | #{board[2]} \n"
@@ -24,11 +16,7 @@ def turn(board)
      move(board,index,"X")
      display_board(board)
   else 
-    while !valid_move?(board,index)
-      puts "Please enter 1-9"
-      input = gets
-      index = input_to_index(input)
-    end
+    turn(board)
   end
 end
 
@@ -38,7 +26,6 @@ end
 
 def move (board, index, token = "X")
   board[index] = token
-  board
 end
 
 def valid_move? (board, number_entered)
@@ -60,7 +47,7 @@ taken = nil
   if (board[index] == "" || board[index] == " " || board[index] == nil)
     taken =false 
     
-  else (board[index] = "X" || board[index] = "O" )
+  else (board[index] == "X" || board[index] == "O" )
     taken = true 
   end
 
